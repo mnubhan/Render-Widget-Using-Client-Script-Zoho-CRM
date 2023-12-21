@@ -12,37 +12,15 @@ ZOHO.embeddedApp.on("PageLoad", async function (data) {
     } else if (noteContent == "") {
       alert("Please enter note content");
     } else {
-      //   let data = {
-      //     Entity: module,
-      //     RecordID: recordId,
-      //     Title: noteTitle,
-      //     Content: noteContent
-      //   };
-      //   ZOHO.CRM.API.addNotes(data).then(function (data) {
-      //     console.log(data);
-      //   });
-      //   ZOHO.CRM.UI.Popup.closeReload();
-      console.log({ Title: noteTitle, Content: noteContent });
-      $Client.close({ Title: noteTitle, Content: noteContent });
+        let data = {
+          Entity: module,
+          RecordID: recordId,
+          Title: noteTitle,
+          Content: noteContent
+        };
+      console.log(data);
+      $Client.close(data);
     }
   });
 });
 ZOHO.embeddedApp.init();
-// function closewidget() {
-//   if (count > maxRows) {
-//     alert("Selected product is greater than the maximum subform rows.");
-//   } else {
-//     var selected_products = [];
-//     for (product_element of document.getElementsByClassName("products")) {
-//       product_element.checked &&
-//         selected_products.push(
-//           productData.find((product) => product.id === product_element.id)
-//         );
-//     }
-//     console.log(
-//       "returning to Client Script ...",
-//       JSON.stringify(selected_products)
-//     );
-//     $Client.close(selected_products);
-//   }
-// }
